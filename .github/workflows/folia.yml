@@ -24,20 +24,22 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v3
+        with:
+          repository: 'PaperMC/Folia'
+          ref: 'dev/1.20.2' # Specify the branch here
 
-      # Runs a set of commands using the runners shell
-      - name: 'Build Folia .jar'
+      - name: 'Setup Git'
         run: |
-          git clone https://github.com/PaperMC/Folia/tree/dev/1.20.2
           git config --global user.email "you@example.com"
           git config --global user.name "Your Name"
-          cd Folia
+
+      - name: 'Build Folia .jar'
+        run: |
           ./gradlew applyPatches
           ./gradlew createReobfPaperclipJar
 
       - uses: actions/upload-artifact@v3
         with:
           name: FoliaToGo
-          path: Folia/build/libs/*.jar
+          path: build/libs/*.jar

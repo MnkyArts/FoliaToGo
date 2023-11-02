@@ -26,13 +26,11 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v3
-        with:
-          ref: 'dev/1.20.2' # Specify the branch here
 
       # Runs a set of commands using the runners shell
       - name: 'Build Folia .jar'
         run: |
-          git clone --single-branch --branch dev/1.20.2 https://github.com/PaperMC/Folia
+          git clone --branch dev/1.20.2 https://github.com/PaperMC/Folia
           git config --global user.email "you@example.com"
           git config --global user.name "Your Name"
           cd Folia

@@ -7,6 +7,7 @@ Every midnight UTC, GitHub Actions runs [the build script](https://github.com/Sl
 
 These builds may or may not be up-to-date with the latest Folia commits because they run at a certain time every day.
 
+
 <h1>
 <p align="center">
 <a href="https://nightly.link/Slackadays/FoliaToGo/workflows/folia/main/FoliaToGo"><code>Download the latest build</code></a>
